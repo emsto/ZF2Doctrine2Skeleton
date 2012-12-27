@@ -1,0 +1,9 @@
+!.gitignore
+.composer
+ZendDeveloperTools
+bin
+composer
+doctrine
+symfony
+zendframework
+autoload.php
