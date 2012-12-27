@@ -9,6 +9,11 @@ return array(
         ),
     ),
     'doctrine' => array(
+        'configuration' => array(
+            'orm_default' => array(
+                'naming_strategy' => 'doctrine.orm_default.namingstrategy'
+            ),
+        ),
         'driver' => array(
             __NAMESPACE__ . '_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
@@ -39,6 +44,9 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+            'doctrine.orm_default.namingstrategy' => function() {
+                return new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy(\CASE_LOWER);
+            },
         ),
     ),
     'translator' => array(
